@@ -11,7 +11,7 @@ locale                   : "en-US"
 title                    : "Joy Zhang"
 title_separator          : "-"
 name                     : &name "Joy Zhang"
-description              : &description "PhD student from the Center for Applied Math at Cornell University, interested in developing computational methods for the problems in biology"
+description              : &description "Joy Zhang's personal website"
 url                      : https://joy-zhang-38.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "joy-zhang-38/joy-zhang-38.github.io"
@@ -22,23 +22,23 @@ repository               : "joy-zhang-38/joy-zhang-38.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Joy Zhang"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "PhD student from the Center for Applied Math at Cornell University, interested in developing computational methods for the problems in biology"
+  location         : "Ithaca, NY"
+  employer         : "Cornell University"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "zz547@cornell.edu" 
 
   # Academic websites
-  arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
-  semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
-  scopus           : # URL
+  # arxiv            : # URL - Update with the correct link to your profile
+  googlescholar    : "https://scholar.google.com/citations?user=ZfWVBw8AAAAJ&hl=en"
+  # impactstory      : # URL
+  orcid            : "https://orcid.org/my-orcid?orcid=0000-0002-6734-1665"
+  # semantic         : # URL
+  # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  # researchgate     : # URL
+  # scopus           : # URL
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
