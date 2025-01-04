@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm a PhD student at the Center for Applied Math of Cornell University advised by Jaehee Kim. 
+I'm a PhD student at the Center for Applied Math of Cornell University advised by <a href="https://cals.cornell.edu/jaehee-kim">Jaehee Kim</a>. 
 
 I'm interested in developing computational methods for the problems in biology. My research focuses on mathematical modeling in phylogenetics, with applications to genomics and cancer research. Specifically, I focus on developing computational methods for inferring essential phylogenetic and phylodynamic parameters, drawing inspiration from advances in mathematics and statistics. My work has involved leveraging tools such as Markov Chain Monte Carlo (MCMC) and combinatorics to infer the phylodynamics of multiple populations. Additionally, I explore applications of reinforcement learning in related domains.
 
