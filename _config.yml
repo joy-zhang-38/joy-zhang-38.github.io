@@ -21,7 +21,7 @@ repository               : "joy-zhang-38/joy-zhang-38.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "myProfile.png"
   name             : "Joy Z. Zhang"
   # pronouns         : # example: "she/her"  
   # bio              : 
