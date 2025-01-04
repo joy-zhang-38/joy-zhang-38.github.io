@@ -8,10 +8,10 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Joy Zhang"
+title                    : "Joy Z. Zhang"
 title_separator          : "-"
-name                     : &name "Joy Zhang"
-description              : &description "Joy Zhang's personal website"
+name                     : &name "Joy Z. Zhang"
+description              : &description "Joy Z. Zhang's personal website"
 url                      : https://joy-zhang-38.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "joy-zhang-38/joy-zhang-38.github.io"
@@ -22,7 +22,7 @@ repository               : "joy-zhang-38/joy-zhang-38.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Joy Zhang"
+  name             : "Joy Z. Zhang"
   # pronouns         : # example: "she/her"  
   # bio              : 
   # location         : "Ithaca, NY"
