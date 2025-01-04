@@ -24,8 +24,8 @@ author:
   avatar           : "profile.png"
   name             : "Joy Zhang"
   # pronouns         : # example: "she/her"  
-  bio              : "I'm a PhD student at the Center for Applied Math of Cornell University. I'm interested in developing computational methods for the problems in biology."
-  location         : "Ithaca, NY"
+  # bio              : 
+  # location         : "Ithaca, NY"
   employer         : "Cornell University"
   # url              : # URL
   email            : "zz547@cornell.edu" 
