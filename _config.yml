@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Joy Z. Zhang"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Joy Z. Zhang"
 description              : &description "Joy Z. Zhang's personal website"
