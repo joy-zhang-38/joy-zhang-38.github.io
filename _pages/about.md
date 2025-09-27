@@ -7,8 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-I'm a PhD student at the <a href="https://www.cam.cornell.edu/cam">Center for Applied Math of Cornell University</a> advised by <a href="https://cals.cornell.edu/jaehee-kim">Jaehee Kim</a>. 
+I'm a PhD student at the <a href="https://www.cam.cornell.edu/cam">Center for Applied Math of Cornell University</a> advised by <a href="https://www.danielrkowal.com/">Daniel Kowal</a>. 
 
-I'm interested in developing computational methods for the problems in biology. My research focuses on mathematical modeling in phylogenetics, with applications to genomics and cancer research. Specifically, I focus on developing computational methods for inferring essential phylogenetic and phylodynamic parameters, drawing inspiration from advances in mathematics and statistics. My work has involved leveraging tools such as Markov Chain Monte Carlo (MCMC) and combinatorics to infer the phylodynamics of multiple populations. Additionally, I explore applications of reinforcement learning in related domains.
-
-My goal is to enhance our understanding of genes and diseases by harnessing the elegant and powerful ideas found in mathematics, statistics, and computer science.
+I'm broadly interested in Bayesian Statistics, particularly non-parametric regression, forecasting, and factor analysis. 
