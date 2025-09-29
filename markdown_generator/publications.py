@@ -1,108 +1,119 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# # Publications markdown generator for academicpages
+# # Page Generator for Publications
 # 
-# Takes a TSV of publications with metadata and converts them for use with [academicpages.github.io](academicpages.github.io). This is an interactive Jupyter notebook, with the core python code in publications.py. Run either from the `markdown_generator` folder after replacing `publications.tsv` with one that fits your format.
+# Takes a TSV file of publications with metadata and converts them for use with the academicpages template. This script generates a markdown file for each publication.
 # 
-# TODO: Make this work with BibTex and other databases of citations, rather than Stuart's non-standard TSV format and citation style.
+# The TSV file has a header row with the following columns: pub_date, title, venue, excerpt, citation, url_slug, paper_url, and slides_url. An example is provided in publications.tsv.
 # 
+# The optional file bibtex.bib passed as a command line argument gets copied to `_bibliography/` for the Jekyll Scholar plugin.
 
-# ## Data format
-# 
-# The TSV needs to have the following columns: pub_date, title, venue, excerpt, citation, site_url, and paper_url, with a header at the top. 
-# 
-# - `excerpt` and `paper_url` can be blank, but the others must have values. 
-# - `pub_date` must be formatted as YYYY-MM-DD.
-# - `url_slug` will be the descriptive part of the .md file and the permalink URL for the page about the paper. The .md file will be `YYYY-MM-DD-[url_slug].md` and the permalink will be `https://[yourdomain]/publications/YYYY-MM-DD-[url_slug]`
-
-
-# ## Import pandas
-# 
-# We are using the very handy pandas library for dataframes.
-
-# In[2]:
-
+# ## Import Libraries
 import pandas as pd
-
+import os
+import sys
 
 # ## Import TSV
 # 
-# Pandas makes this easy with the read_csv function. We are using a TSV, so we specify the separator as a tab, or `\t`.
-# 
-# I found it important to put this data in a tab-separated values format, because there are a lot of commas in this kind of data and comma-separated values can get messed up. However, you can modify the import statement, as pandas also has read_excel(), read_json(), and others.
+# Import the TSV file using the Pandas python library.
 
-# In[3]:
-
-publications = pd.read_csv("publications.tsv", sep="\t", header=0)
-publications
-
+try:
+    # TSV Filename
+    filename_tsv = "publications.tsv"
+    
+    # Read the TSV file
+    publications = pd.read_csv(filename_tsv, sep="\t", header=0)
+except (IOError, SystemError) as e:
+    print("Error: The file '" + filename_tsv + "' could not be found. \n" + str(e))
+    # Stop the script if the file is not found
+    sys.exit()
 
 # ## Escape special characters
 # 
-# YAML is very picky about how it takes a valid string, so we are replacing single and double quotes (and ampersands) with their HTML encoded equivilents. This makes them look not so readable in raw format, but they are parsed and rendered nicely.
+# YAML is very picky about how it deals with special characters, so we need to fix this. This general loop goes through all the columns and fixes formatting where appropriate.
 
-# In[4]:
+def escape_md(text):
+    if type(text) is str:
+        return text.replace('"', '\\"')
+    else:
+        return text
 
-html_escape_table = {
-    "&": "&amp;",
-    '"': "&quot;",
-    "'": "&apos;"
-    }
+for key, value in publications.items():
+    publications[key] = value.apply(escape_md)
 
-def html_escape(text):
-    """Produce entities within text."""
-    return "".join(html_escape_table.get(c,c) for c in text)
-
-
-# ## Creating the markdown files
+# ## Copy Bibtex
 # 
-# This is where the heavy lifting is done. This loops through all the rows in the TSV dataframe, then starts to concatentate a big string (```md```) that contains the markdown for each type. It does the YAML metadata first, then does the description for the individual page. If you don't want something to appear (like the "Recommended citation")
+# The Jekyll Scholar plugin requires a bib file to be copied to the `_bibliography/` folder.
 
-# In[5]:
+try:
+    if len(sys.argv) > 1:
+        # Bibtex Filename
+        filename_bib = str(sys.argv[1])
+        
+        # Copy the bib file to the `_bibliography/` folder
+        os.system("cp " + filename_bib + " ../_bibliography/references.bib")
+    else:
+        print("Warning: No bib file was provided. The bib file will not be copied.")
+except (IOError, SystemError) as e:
+    print("Error: The file '" + filename_bib + "' could not be found. \n" + str(e))
 
-import os
+# ## Loop through publications
+# 
+# Now we are ready to loop through the publications in the TSV file.
+
 for row, item in publications.iterrows():
     
+<<<<<<< HEAD
     md_filename = str(item.pub_date) + "-" + item.url_slug + ".md"
     html_filename = str(item.pub_date) + "-" + item.url_slug
+=======
+    # Corrected Line: Convert pub_date to a string before slicing
+>>>>>>> eef2d714be1c3b9b474c79d0e448916ad3b7a479
     year = item.pub_date
     
-    ## YAML variables
+    md_filename = str(year) + "-" + item.url_slug + ".md"
+    html_filename = str(year) + "-" + item.url_slug
+    
+    # ## YAML Front Matter
     
     md = "---\ntitle: \""   + item.title + '"\n'
     
-    md += """collection: publications"""
+    md += "collection: publications" + "\n"
     
-    md += """\npermalink: /publication/""" + html_filename
+    md += "permalink: /publication/" + html_filename + "\n"
     
     if len(str(item.excerpt)) > 5:
-        md += "\nexcerpt: '" + html_escape(item.excerpt) + "'"
+        md += 'excerpt: "' + str(item.excerpt) + '"\n'
     
-    md += "\ndate: " + str(item.pub_date) 
+    md += "date: " + str(item.pub_date) + "\n"
     
-    md += "\nvenue: '" + html_escape(item.venue) + "'"
-    
-    if len(str(item.paper_url)) > 5:
-        md += "\npaperurl: '" + item.paper_url + "'"
-    
-    md += "\ncitation: '" + html_escape(item.citation) + "'"
-    
-    md += "\n---"
-    
-    ## Markdown description for individual page
+    md += "venue: '" + str(item.venue) + "'\n"
     
     if len(str(item.paper_url)) > 5:
-        md += "\n\n<a href='" + item.paper_url + "'>Download paper here</a>\n" 
-        
+        md += "paperurl: '" + item.paper_url + "'\n"
+
+    if len(str(item.slides_url)) > 5:
+        md += "slidesurl: '" + item.slides_url + "'\n"
+    
+    md += "citation: '" + str(item.citation) + "'\n"
+    
+    md += "---\n"
+    
+    # ## Markdown Body
+    
+    md += "\n"
+    
     if len(str(item.excerpt)) > 5:
-        md += "\n" + html_escape(item.excerpt) + "\n"
-        
-    md += "\nRecommended citation: " + item.citation
+        md += item.excerpt + "\n"
     
+    if len(str(item.paper_url)) > 5:
+        md += "\n<a href='" + item.paper_url + "'>Download paper here</a>\n"
+        
+    if len(str(item.slides_url)) > 5:
+        md += "\n<a href='" + item.slides_url + "'>Download slides here</a>\n"
+        
     md_filename = os.path.basename(md_filename)
-       
+    
     with open("../_publications/" + md_filename, 'w') as f:
         f.write(md)
-
-
