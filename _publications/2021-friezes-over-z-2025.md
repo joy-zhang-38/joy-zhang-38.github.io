@@ -8,4 +8,4 @@ venue: 'Involve, a Journal of Mathematics'
 citation: 'Banaian, E., Farrell, L., Tao, A., Wright, K., & Zhang, J. Z. (2025). &quot;Friezes over ℤ[√2].&quot; <i>Involve, a Journal of Mathematics</i>, 18(4), 683-705.'
 ---
 
-This paper explores mathematical frieze patterns over the ring of integers ℤ[√d].
+This paper explores mathematical frieze patterns over the ring of integers ℤ[√2].
