@@ -65,7 +65,7 @@ except (IOError, SystemError) as e:
 for row, item in publications.iterrows():
     
     # Corrected Line: Convert pub_date to a string before slicing
-    year = str(item.pub_date)[:4]
+    year = item.pub_date
     
     md_filename = str(year) + "-" + item.url_slug + ".md"
     html_filename = str(year) + "-" + item.url_slug
