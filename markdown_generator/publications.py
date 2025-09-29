@@ -64,12 +64,8 @@ except (IOError, SystemError) as e:
 
 for row, item in publications.iterrows():
     
-<<<<<<< HEAD
     md_filename = str(item.pub_date) + "-" + item.url_slug + ".md"
     html_filename = str(item.pub_date) + "-" + item.url_slug
-=======
-    # Corrected Line: Convert pub_date to a string before slicing
->>>>>>> eef2d714be1c3b9b474c79d0e448916ad3b7a479
     year = item.pub_date
     
     md_filename = str(year) + "-" + item.url_slug + ".md"
@@ -86,7 +82,7 @@ for row, item in publications.iterrows():
     if len(str(item.excerpt)) > 5:
         md += 'excerpt: "' + str(item.excerpt) + '"\n'
     
-    md += "date: " + str(item.pub_date) + "\n"
+    md += "date: " + str(item.pub_date) + "-01-01\n"
     
     md += "venue: '" + str(item.venue) + "'\n"
     
