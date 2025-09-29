@@ -1,5 +1,5 @@
 ---
-title: "Friezes over ℤ[√d]"
+title: "Friezes over ℤ[√2]"
 collection: publications
 permalink: /publication/2021-friezes-over-z-2025
 excerpt: "This paper explores mathematical frieze patterns over the ring of integers ℤ[√2]."
