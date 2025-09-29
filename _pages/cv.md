@@ -6,8 +6,8 @@ author_profile: false
 redirect_from:
   - /resume
 ---
-<object data="/files/cv.pdf" type="application/pdf" width="100%" height="1000px">
-  <p>Your browser does not support PDFs. Please <a href="/files/cv.pdf">download the PDF</a> to view it.</p>
+<object data="/files/CV.pdf" type="application/pdf" width="100%" height="1000px">
+  <p>Your browser does not support PDFs. Please <a href="/files/CV.pdf">download the PDF</a> to view it.</p>
 </object>
 
 <!--{% include base_path %}
